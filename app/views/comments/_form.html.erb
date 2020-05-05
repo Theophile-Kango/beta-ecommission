@@ -1,0 +1,12 @@
+<% @comment.errors.full_messages.each do |error| %>
+    <ul>
+        <li><%= error %></li>
+    </ul>
+<% end %>
+
+<%= form_for [@article, @comment] do |f| %>
+    <p><%= f.label :body %></p>
+    <p><%= f.text_area :body %></p>
+    <p> <%= f.hidden_field :user_id, value: current_user.id %> </p>
+    <p><%= f.submit %></p>
+<% end %>
