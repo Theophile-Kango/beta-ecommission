@@ -1,6 +1,7 @@
 <nav>
     <ul>
         <% if current_user %>
+            <li><%= current_user.user_name %></li>
             <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
         <% else %>
             <li><%= link_to 'log in', new_user_session_path %></li>
