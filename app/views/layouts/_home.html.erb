@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+        <% if current_user %>
+            <li><%= link_to 'log out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'log in', new_user_session_path %></li>
+            <li><%= link_to 'sign up', new_user_registration_path %></li>
+        <% end %>
+    </ul>
+</nav>

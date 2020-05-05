@@ -1,6 +1,7 @@
 <% @comments.each do |comment| %>
   <p><%= comment.body %></p>
-  <p>Commented by <%= comment.user.email %> 
+  <p>Commented <%= "by #{comment.user.user_name }" if current_user %> 
+    
     <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
   </p>
   <p><%= link_to 'Delete', article_comment_path(comment.article_id, comment.id), 
