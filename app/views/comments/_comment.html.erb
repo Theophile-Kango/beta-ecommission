@@ -4,6 +4,10 @@
     
     <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
   </p>
-  <p><%= link_to 'Delete', article_comment_path(comment.article_id, comment.id), 
-  method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+  <% if current_user && current_user.id == comment.user_id  %>
+    <p><%= link_to 'Delete', article_comment_path(comment.article_id, comment.id), 
+    method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
 <% end %>
+

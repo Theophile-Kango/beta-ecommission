@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :user_authorization, only: %i[destroy edit update]
+
     def create
         @article = Article.find(params[:article_id])
         @comment = @article.comments.new(params_comment)
@@ -11,10 +12,11 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @article = current_user.articles.find(params[:id])
-        @article.comments.destroy
-        flash.notice = "Post, '#{@comment.body}' deleted!"
-        redirect_to root_path
+        @article = Article.find(params[:article_id])
+        @comment = Comment.find(params[:id])
+        @comment.destroy
+        flash.alert = 'comment, deleted!'
+        redirect_to @article
     end
 
     private
@@ -23,7 +25,7 @@ class CommentsController < ApplicationController
     end
 
     def user_authorization
-        return if current_user.articles.find_by_id(params[:id])
+        return if current_user.comments.find_by_id(params[:id])
         flash.alert = 'authorize author only'
         redirect_to :root
     end

@@ -15,8 +15,9 @@
         <td><%= article.title %></td>
         <td><%= article.body %></td>
         <td>has <%= pluralize(article.comments.count, 'comment') %></td>
-        <td>Posted <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</td>
-        <% if current_user && current_user.admin %>
+        <td>Posted <%= "by #{ article.user.user_name }" if current_user && current_user.admin %>
+        <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</td>
+        <% if current_user && current_user.admin && current_user.id == article.user_id %>
           <td><%= link_to 'Edit', edit_article_path(article) %></td>
           <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
