@@ -21,6 +21,15 @@
     <%= form.text_area :body %>
   </div>
 
+  <div class="field">
+    <p>choose a categorie</p>
+    
+    <p>
+      <%= form.label :tag_list, 'Other informations' %>
+      <%= form.text_field :tag_list %>
+    </p>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
