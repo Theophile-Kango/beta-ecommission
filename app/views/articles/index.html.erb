@@ -13,6 +13,9 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
+        <% if article.image.exists? %>
+          <%= image_tag article.image.url %><br/>
+        <% end %>
         <td><%= article.body %></td>
         <td>has <%= pluralize(article.comments.count, 'comment') %></td>
         <td>Posted <%= "by #{ article.user.user_name }" if current_user && current_user.admin %>
