@@ -18,7 +18,7 @@
         <% end %>
         <td><%= article.body %></td>
         <td>has <%= pluralize(article.comments.count, 'comment') %></td>
-        <td>Posted <%= "by #{ article.user.user_name }" if current_user && current_user.admin %>
+        <td>Posted <%= "by #{ article.user.user_name }" if current_user &.admin %>
         <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</td>
         <% if current_user && current_user.admin && current_user.id == article.user_id %>
           <td><%= link_to 'Edit', edit_article_path(article) %></td>
@@ -31,6 +31,7 @@
 </table>
 
 <br>
-<% if current_user && current_user.admin %>
+<% if current_user &.admin %>
+  <%= link_to 'show users', list_path %>
   <%= link_to 'New Article', new_article_path %>
 <% end %>
