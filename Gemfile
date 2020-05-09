@@ -10,6 +10,8 @@ gem 'sqlite3'
 
 gem 'devise'
 
+gem 'rails_admin'
+
 gem 'paperclip'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

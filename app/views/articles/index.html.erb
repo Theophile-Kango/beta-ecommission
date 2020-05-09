@@ -32,6 +32,6 @@
 
 <br>
 <% if current_user &.admin %>
-  <%= link_to 'show users', list_path %>
+  <%= link_to 'administration', rails_admin_path %>
   <%= link_to 'New Article', new_article_path %>
 <% end %>
