@@ -14,6 +14,8 @@ gem 'rails_admin'
 
 gem 'gravtastic'
 
+gem 'bootstrap-sass'
+
 gem 'paperclip'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

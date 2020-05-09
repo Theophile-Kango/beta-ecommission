@@ -13,10 +13,243 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";  
+@import "bootstrap";
+
+$blue: rgb(60, 60, 145);
+$grey:  rgb(226, 222, 222);
+
+body{
+    background: $grey;
+}
+
+header{
+    background: #fff;
+    height: 50px;
+    nav{
+        ul{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            a:hover{
+                text-decoration: none;
+            }
+            h2{
+                color: $blue;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-style: oblique;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+            .logged{
+                display: flex;
+                align-items: center;
+                font-weight: bold;
+                li{
+                    display: flex;
+                    a{
+                        background: $blue;
+                        color: white;
+                        height: 30px;
+                        margin: 10px;
+                        width: 70px;
+                        text-align: center;
+                        &:hover{
+                            background: $grey;
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+            .search{
+                display: flex;
+                align-items: center;
+                width: 400px;
+                height: 30px;
+                input{
+                    width: 100%;
+                    height: 100%;
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+}
 
 .gravatar {
     height: 30px;
     width: 30px;
     object-fit: cover;
     border-radius: 50%;
+}
+
+//header
+
+
+
+//footer
+
+.site-footer
+{
+    background-color:#26272b;
+    padding:45px 0 20px;
+    font-size:15px;
+    line-height:24px;
+    color:#737373;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    hr{
+        border-top-color:#bbb;
+        opacity:0.5
+        small
+        {
+            margin:20px 0
+        }
+    }
+    h6{
+        color:#fff;
+        font-size:16px;
+        text-transform:uppercase;
+        margin-top:5px;
+        letter-spacing:2px
+    }
+    .social-icons
+    {
+        text-align:right
+    
+        li{
+            display: flex;
+            list-style: none;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            a {
+                text-decoration: none;
+                width:40px;
+                height:40px;
+                line-height:20px;
+                margin-right:0;
+                border-radius:100%;
+                background-color:#33353d;
+                color:#737373;
+                &:hover
+                {
+                    color:#3366cc;
+                    text-decoration:none;
+                }
+            }
+        }    
+    }
+    
+    .footer-links {
+        padding-left:0;
+        list-style:none;
+        li{
+            list-style: none;
+            a {
+                color:#737373;
+                &:active, &:focus, &:hover {
+                    color:#3366cc;
+                    text-decoration:none;
+                }
+            }
+        }
+        .inline li{
+            display:inline-block
+        }
+    }
+    .copyright-text
+    {
+        margin:0
+    }
+}
+
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none;
+  li{
+        display:inline-block;
+        margin-bottom:4px;
+        .title
+        {
+            margin-right:15px;
+            text-transform:uppercase;
+            color:#96a2b2;
+            font-weight:700;
+            font-size:13px
+        }
+        a {
+            background-color:#eceeef;
+            color:#818a91;
+            font-size:16px;
+            display:inline-block;
+            line-height:44px;
+            width:44px;
+            height:44px;
+            text-align:center;
+            margin-right:8px;
+            border-radius:100%;
+            -webkit-transition:all .2s linear;
+            -o-transition:all .2s linear;
+            transition:all .2s linear;
+            &:active,&:focus,&:hover
+            {
+                color:#fff;
+                background-color:#29aafe
+            }
+        }
+        
+    }
+    .size-sm a{
+        line-height:34px;
+        height:34px;
+        width:34px;
+        font-size:14px
+    }
+    a.facebook:hover {
+        background-color:#3b5998
+    }
+    a.twitter:hover
+    {
+        background-color:#00aced
+    }
+    a.linkedin:hover
+    {
+        background-color:#007bb6
+    }
+    a.dribbble:hover
+    {
+        background-color:#ea4c89
+    }
+}
+
+@media (max-width:767px)
+{
+    .social-icons li.title
+    {
+        display:block;
+        margin-right:0;
+        font-weight:600
+    }
 }

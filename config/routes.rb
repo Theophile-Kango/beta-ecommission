@@ -6,8 +6,6 @@ Rails.application.routes.draw do
     resources :comments
     resources :tags
   end
-
-  get '*path' => redirect('/')
   
   resources :tags
   
