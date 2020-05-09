@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'rails_admin'
 
+gem 'gravtastic'
+
 gem 'paperclip'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

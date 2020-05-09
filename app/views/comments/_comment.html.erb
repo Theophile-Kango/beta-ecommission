@@ -1,5 +1,8 @@
 <% @comments.each do |comment| %>
-  <p><%= comment.body %></p>
+  <p>
+    <%= image_tag comment.user.gravatar_url, :class => "gravatar" %>
+    <%= comment.body %>
+  </p>
   <p>Commented <%= "by #{comment.user.user_name }" if current_user %> 
     
     <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago

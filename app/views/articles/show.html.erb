@@ -14,6 +14,9 @@
   <strong>Body:</strong>
   <%= @article.body %>
 </p>
+<% if @article.image.exists? %>
+  <p><%= image_tag @article.image.url %><br/></p>
+<% end %>
 
 <%= render 'comments/comment' %>
 <%= render 'comments/form' %>
