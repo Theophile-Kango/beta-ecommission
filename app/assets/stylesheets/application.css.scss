@@ -19,6 +19,21 @@
 $blue: rgb(60, 60, 145);
 $grey:  rgb(226, 222, 222);
 
+@mixin logged-button($color) {
+    a{
+        background: $color;
+        color: $blue;
+        height: 30px;
+        margin: 10px;
+        width: 100px;
+        text-align: center;
+        &:hover{
+            background: $blue;
+            color: white;
+        }
+    }
+}
+//header
 body{
     background: $grey;
 }
@@ -47,31 +62,10 @@ header{
                 font-weight: bold;
                 li{
                     display: flex;
-                    a{
-                        background: $blue;
-                        color: white;
-                        height: 30px;
-                        margin: 10px;
-                        width: 70px;
-                        text-align: center;
-                        &:hover{
-                            background: $grey;
-                            color: $blue;
-                        }
-                    }
+                    @include logged-button($grey);
                 }
             }
-            .search{
-                display: flex;
-                align-items: center;
-                width: 400px;
-                height: 30px;
-                input{
-                    width: 100%;
-                    height: 100%;
-                    padding-left: 5px;
-                }
-            }
+            
         }
     }
 }
@@ -83,8 +77,70 @@ header{
     border-radius: 50%;
 }
 
-//header
 
+//body
+.sign-up,
+.login,
+.password,
+.edit{
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        color: $blue;
+    }
+    form{
+        width: 800px;
+        background: white;
+        border: 3px solid $blue;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        padding: 20px;
+        .field{
+            width: 600px;
+            display: flex;
+            justify-content: flex-start;
+            
+            input{
+                width: 400px;
+                height: 30px;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+            label{
+                display:flex;
+                width: 150px;
+            }
+        }
+        .actions{
+            input{
+                background: $blue;
+                color: white;
+                width: 100px;
+                height: 30px;
+                border: none;
+            }
+        }
+        
+    }
+    @include logged-button(white);
+    #forgot{
+        height: 50px;
+        margin-bottom: 10px;
+        a{
+            background: $grey;
+            font-weight: bold;
+            &:hover{
+                background: $grey;
+                color: $blue;
+            }
+        }
+    }
+}
 
 
 //footer

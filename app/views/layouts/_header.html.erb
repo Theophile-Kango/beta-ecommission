@@ -2,9 +2,6 @@
     <nav>
         <ul>
             <h2><%= link_to 'Beta ecommission', root_path %></h2>
-            <div class="search">
-                <input type="text" />
-            </div>
             <div class="logged">
                 <% if current_user %>
                     <li><%= link_to 'Edit profile', edit_user_registration_path  %></li>
