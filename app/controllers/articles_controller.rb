@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all.order('created_at Desc')
+    @firsts = @articles.limit(4)
     
   end
 

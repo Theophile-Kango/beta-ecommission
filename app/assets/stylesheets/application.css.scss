@@ -142,6 +142,71 @@ header{
     }
 }
 
+//index header
+.top-articles{
+    display: flex;
+    
+    .first-post{
+        background: white;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        position: relative;
+        height: 200px;
+        margin: 0 5px;
+
+        h3{
+            text-align: center;
+            color: $blue;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        .figure{
+            position: relative;
+            height: 60%;
+            background: black;
+            p{
+                font-style: italic;
+                background: white;
+                color: black;
+                text-transform: capitalize;
+                font-weight: bolder;
+                text-align: justify;
+                padding: 8px;
+                height: 150px;
+                position: relative;
+                top: 0px;
+            }
+            button{
+                background: $blue;
+                color: white;
+                border: none;
+                position: relative;
+                top: -33px;
+                text-transform: capitalize;
+                @include logged-button($blue);
+                a{
+                    color: white;
+                }
+            }
+            figure{
+                position: relative;
+                top: -182px;
+                background: black;
+                opacity: 0.7;
+                img{
+                    object-fit: cover;
+                    height: 150px;
+                    width: 100%;
+                    opacity: 0.4;
+                }
+            }
+
+        }
+        
+    }
+}
+
 
 //footer
 
