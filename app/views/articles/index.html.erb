@@ -41,10 +41,15 @@
 </table>
 -->
   <hr>
-  
-  <% if current_user &.admin %>
-    <%= link_to 'administration', rails_admin_path %>
-    <%= link_to 'New Article', new_article_path %>
-  <% end %>
+  <div class="links">
+    <% if current_user &.admin %>
+    <button>
+      <%= link_to 'administration', rails_admin_path %>
+    </button>
+    <button>
+      <%= link_to 'New Article', new_article_path %>
+    </button>
+    <% end %>
+  </div>
 
 </div>

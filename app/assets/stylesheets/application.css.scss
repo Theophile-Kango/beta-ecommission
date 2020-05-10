@@ -27,6 +27,7 @@ $grey:  rgb(226, 222, 222);
         margin: 10px;
         width: 100px;
         text-align: center;
+        text-transform: capitalize;
         &:hover{
             background: $blue;
             color: white;
@@ -206,7 +207,17 @@ header{
         
     }
 }
-
+.links{
+    button{
+        border: none;
+        background: $blue;
+        margin-bottom: 10px;
+        @include logged-button($blue);
+        a{
+            color: white;
+        }
+    }
+}
 
 //footer
 
