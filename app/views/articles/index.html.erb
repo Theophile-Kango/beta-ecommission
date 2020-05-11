@@ -28,10 +28,10 @@
         <% end %>
         <p><%= article.body %></p>
         <small>has <%= pluralize(article.comments.count, 'comment') %></small>
-        <small>Posted <%= "by #{ article.user.user_name }" if current_user &.admin %>
+        <small>Posted <%= "by #{ article.user.user_name }" if current_user &.simple_admin %>
         <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</small>
         <div class="buttons">
-          <% if current_user && current_user.admin && current_user.id == article.user_id %>
+          <% if current_user && current_user.simple_admin && current_user.id == article.user_id %>
             <button id="edit"><%= link_to 'Edit', edit_article_path(article) %></button>
             <button id="destroy"><%= link_to 'Destroy', article, 
             method: :delete, data: { confirm: 'Are you sure?' } %></button>
@@ -54,6 +54,7 @@
     <button>
       <%= link_to 'administration', rails_admin_path %>
     </button>
+    <% elsif current_user &.simple_admin %>
     <button>
       <%= link_to 'New Article', new_article_path %>
     </button>

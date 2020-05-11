@@ -15,8 +15,15 @@ class User < ApplicationRecord
   
   if User.all.length >= 1
     u = User.first
-    u.admin = true 
+    u.admin = true
     u.save
   end
   
+  User.all.each do |u|
+    if u.admin
+      u.simple_admin = true
+      u.save
+    end
+  end
+
 end

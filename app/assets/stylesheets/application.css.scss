@@ -202,7 +202,6 @@ header{
                     opacity: 0.4;
                 }
             }
-
         }
         
     }
@@ -351,28 +350,28 @@ header{
 
 @media (max-width:991px)
 {
-  .site-footer [class^=col-]
-  {
-    margin-bottom:30px
-  }
+    .site-footer [class^=col-]
+    {
+        margin-bottom:30px
+    }
 }
 @media (max-width:767px)
 {
-  .site-footer
-  {
-    padding-bottom:0
-  }
-  .copyright-text,.site-footer .social-icons
-  {
-    text-align:center
-  }
+    .site-footer
+    {
+        padding-bottom:0
+    }
+    .copyright-text,.site-footer .social-icons
+    {
+        text-align:center
+    }
 }
 .social-icons
 {
-  padding-left:0;
-  margin-bottom:0;
-  list-style:none;
-  li{
+    padding-left:0;
+    margin-bottom:0;
+    list-style:none;
+    li{
         display:inline-block;
         margin-bottom:4px;
         .title
