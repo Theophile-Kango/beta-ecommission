@@ -13,4 +13,10 @@ class User < ApplicationRecord
     self.email.split('.').map(&:capitalize).join(' ').split('@')[0]
   end
   
+  if User.all.length >= 1
+    u = User.first
+    u.admin = true 
+    u.save
+  end
+  
 end

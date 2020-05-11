@@ -19,29 +19,30 @@
     <% end %>
   </div>
   <!--
-  <table>
+  <article class="container index-body">
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
+      <section>
+        <h3><%= article.title %></h3>
         <% if article.image.exists? %>
-          <%= image_tag article.image.url %><br/>
+          <%= image_tag article.image.url %>
         <% end %>
-        <td><%= article.body %></td>
-        <td>has <%= pluralize(article.comments.count, 'comment') %></td>
-        <td>Posted <%= "by #{ article.user.user_name }" if current_user &.admin %>
-        <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</td>
+        <p><%= article.body %></p>
+        <small>has <%= pluralize(article.comments.count, 'comment') %></small>
+        <small>Posted <%= "by #{ article.user.user_name }" if current_user &.admin %>
+        <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</small>
         <% if current_user && current_user.admin && current_user.id == article.user_id %>
           <td><%= link_to 'Edit', edit_article_path(article) %></td>
           <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
         <td><%= link_to 'Show', article %></td>
-      </tr>
+      </section>
     <% end %>
   
-</table>
+</article>
 -->
+
   <hr>
-  <div class="links">
+  <div class="container links">
     <% if current_user &.admin %>
     <button>
       <%= link_to 'administration', rails_admin_path %>

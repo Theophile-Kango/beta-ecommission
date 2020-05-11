@@ -194,7 +194,7 @@ header{
                 position: relative;
                 top: -182px;
                 background: black;
-                opacity: 0.7;
+                opacity: 0.8;
                 img{
                     object-fit: cover;
                     height: 150px;
@@ -231,6 +231,7 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
     hr{
         border-top-color:#bbb;
         opacity:0.5

@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all.order('created_at Desc')
+    @articles = Article.all.where(is_available: true).order('created_at Desc')
     @firsts = @articles.limit(4)
     
   end
