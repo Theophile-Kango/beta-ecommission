@@ -51,13 +51,14 @@
   <hr>
   <div class="container links">
     <% if current_user &.admin %>
-    <button>
-      <%= link_to 'administration', rails_admin_path %>
-    </button>
-    <% elsif current_user &.simple_admin %>
-    <button>
-      <%= link_to 'New Article', new_article_path %>
-    </button>
+      <button>
+        <%= link_to 'administration', rails_admin_path %>
+      </button>
+    <% end %>
+    <% if current_user &.simple_admin %>
+      <button>
+        <%= link_to 'New Article', new_article_path %>
+      </button>
     <% end %>
   </div>
 

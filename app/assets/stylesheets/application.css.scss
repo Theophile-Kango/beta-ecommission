@@ -15,6 +15,7 @@
  */
 @import "bootstrap-sprockets";  
 @import "bootstrap";
+@import "font-awesome";
 
 $blue: rgb(60, 60, 145);
 $grey:  rgb(226, 222, 222);
@@ -32,6 +33,14 @@ $grey:  rgb(226, 222, 222);
             background: $blue;
             color: white;
         }
+    }
+}
+
+@mixin image {
+    img{
+        width: 750px;
+        height: 400px;
+        object-fit: cover;
     }
 }
 //header
@@ -83,7 +92,9 @@ header{
 .sign-up,
 .login,
 .password,
-.edit{
+.edit,
+.new-form
+{
     margin-top: 0;
     display: flex;
     flex-direction: column;
@@ -168,8 +179,8 @@ header{
             background: black;
             p{
                 font-style: italic;
-                background: white;
-                color: black;
+                background: black;
+                color: white;
                 text-transform: capitalize;
                 font-weight: bolder;
                 text-align: justify;
@@ -178,6 +189,7 @@ header{
                 position: relative;
                 top: 0px;
             }
+            
             button{
                 background: $blue;
                 color: white;
@@ -234,11 +246,7 @@ header{
             font-weight: bold;
             text-transform: capitalize;
         }
-        img{
-            width: 750px;
-            height: 400px;
-            object-fit: cover;
-        }
+        @include image();
         p{
             margin-top: 10px;
             font-size: 1.2em;
@@ -269,6 +277,117 @@ header{
     }
 }
 
+//show
+.show-body{
+    background: white;
+    margin-bottom: 20px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            strong{
+                color: black;
+            }
+            color: $blue;
+        }
+        .categories{
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            span{
+                margin-right: 5px;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            button{
+                border: none;
+                background: $blue;
+                @include logged-button($blue);
+                a{
+                    color: white;
+                }
+            }
+        }
+    }
+    .image{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include image();
+    }
+    .details{
+        margin-top: 30px;
+        width: 86%;
+        .para{
+            margin-bottom: 10px;
+            border-bottom: 1px solid $grey;
+            p{
+                font-size: 1.2em;
+            }
+        }
+
+        .comment{
+            p{
+                font-size: 1em;
+            }
+            small{
+                margin-left: 35px;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+// comment
+
+.add-comment{
+    display: flex;
+    flex-direction: column;
+    .field{
+        margin-top: 10px;
+        width: 100%;
+        .comment-area{
+            width: 100%;
+            border: none;
+            height: 20px;
+            border-bottom: 2px solid $grey;
+            outline: none; 
+            padding: 3px;
+            padding-top: 5px;
+            overflow: auto;
+        }
+    }
+    .action{
+        input{
+            background: $blue;
+            border: none;
+            color: white;
+        }
+    }
+}
+//new form
+.new-form, 
+.edit{
+    .field{
+        .text-area{
+            width: 400px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+    }
+    .image{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include image();
+        margin-bottom: 10px;
+    }
+}
 //footer
 
 .site-footer

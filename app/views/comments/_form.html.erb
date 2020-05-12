@@ -1,12 +1,18 @@
-<% @comment.errors.full_messages.each do |error| %>
-    <ul>
-        <li><%= error %></li>
-    </ul>
-<% end %>
+<div class="add-comment">
+    <% @comment.errors.full_messages.each do |error| %>
+        <ul>
+            <li><%= error %></li>
+        </ul>
+    <% end %>
 
-<%= form_for [@article, @comment] do |f| %>
-    <p><%= f.label :body %></p>
-    <p><%= f.text_area :body %></p>
-    <p> <%= f.hidden_field :user_id, value: current_user.id %> </p>
-    <p><%= f.submit %></p>
-<% end %>
+    <%= form_for [@article, @comment] do |f| %>
+        <div class="field">
+            <%= f.label 'add comment' %><br>
+            <%= f.text_area :body, class: 'comment-area' %>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="action">
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>

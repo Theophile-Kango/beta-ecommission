@@ -18,23 +18,21 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'text-area' %>
   </div>
 
   <div class="field">
-    <p>
-      <%= form.label :tag_list, 'categories about the article' %>
-      <%= form.text_field :tag_list %>
-    </p>
+    <%= form.label :tag_list, 'categorie(s)' %>
+    <%= form.text_field :tag_list %>
   </div>
 
-  <p>
+  <div class="image">
     <% if @article.image.exists? %>
         <%= image_tag @article.image.url %><br/>
     <% end %>
-    <%= form.label :image, "Attach a New Image" %><br />
+    <%= form.label :image, "Attach a New Image" %>
     <%= form.file_field :image %>
-  </p>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

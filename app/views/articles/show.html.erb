@@ -1,24 +1,37 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<article class="container show-body">
+  <div class="header">
+    <h1>
+      <strong>Title:</strong>
+      <%= @article.title %>
+    </h1>
+    <div class="categories">
+      <span>Categorie(s):</span>
+      <div class="buttons">
+        <% @article.tags.each do |tag| %>
+          <button>
+            <%= link_to tag.name, tag_path(tag) %>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="image">
+    <% if @article.image.exists? %>
+      <%= image_tag @article.image.url %>
+    <% end %>
+  </div>
+  <div class="details">
+    <div class="para">
+      <p>
+        <strong>Details :</strong>
+        <%= @article.body %>
+      </p>
+    </div>
+    <div class="comment">
+      <%= render 'comments/comment' %>
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+  <%= link_to 'Back', articles_path %>
 
-<p>
-  Article:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
-<% if @article.image.exists? %>
-  <p><%= image_tag @article.image.url %><br/></p>
-<% end %>
-
-<%= render 'comments/comment' %>
-<%= render 'comments/form' %>
-
-<%= link_to 'Back', articles_path %>
+</article>

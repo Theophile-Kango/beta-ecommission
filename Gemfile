@@ -16,6 +16,8 @@ gem 'gravtastic'
 
 gem 'bootstrap-sass'
 
+gem 'font-awesome-rails'
+
 gem 'paperclip'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
