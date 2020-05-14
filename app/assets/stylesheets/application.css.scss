@@ -388,6 +388,41 @@ header{
         margin-bottom: 10px;
     }
 }
+//header notice
+.alert-notice{
+    width: 30%;
+    text-align: center;
+    .alerts{
+        background: rgb(218, 142, 142);
+        color: rgb(158, 25, 25);
+    }
+    .notices{
+        background: rgb(131, 212, 131);
+        color: rgb(48, 122, 48);
+    }
+}
+//tag show
+.tag-show{
+    h3{
+        color: $blue;
+        font-style: italic;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        li{
+            display: flex;
+            margin-bottom: 10px;
+            img{
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
 //footer
 
 .site-footer
