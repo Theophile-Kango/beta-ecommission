@@ -2,8 +2,8 @@
   <div class="top-articles">
     <% @firsts.each do |article| %>
       <article class="first-post">
+         <h3><%= article.title %></h3>
           <div class="figure">
-            <h3><%= article.title %></h3>
             <p><%= article.body %></p>
             <% article.tags.each do |tag| %>
               <button><%= link_to tag.name, tag_path(tag) %></button>
@@ -13,7 +13,6 @@
                 <%= image_tag article.image.url %>
               <% end %>
             </figure>
-            
           </div>
       </article>
     <% end %>
