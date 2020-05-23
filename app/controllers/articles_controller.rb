@@ -1,10 +1,14 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index]
+  before_action :user_authorization, only: %i[destroy edit update]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.where(is_available: true).order('created_at Desc')
+    @firsts = @articles.limit(4)
+    
   end
 
   # GET /articles/1
@@ -26,7 +30,8 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+
+    @article = current_user.articles.new(article_params)
 
     respond_to do |format|
       if @article.save
@@ -56,6 +61,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    @article = current_user.articles.find(params[:id])
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
@@ -71,6 +77,14 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :tag_list, :image)
     end
+
+    def user_authorization
+      return if current_user.articles.find_by_id(params[:id])
+  
+      flash.alert = 'authorize author only'
+      redirect_to :root
+    end
+
 end

@@ -1,31 +1,65 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.body %></td>
-        <td>has <%= pluralize(article.comments.count, 'comment') %></td>
-        <td>Posted <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container-fluid">
+  <div class="top-articles">
+    <% @firsts.each do |article| %>
+      <article class="first-post">
+        <h3><%= article.title %></h3>
+          <div class="figure">
+            <p><%= article.body %></p>
+            <% article.tags.each do |tag| %>
+              <button><%= link_to tag.name, tag_path(tag) %></button>
+            <% end %>
+            <figure>
+              <% if article.image.exists? %>
+                <%= image_tag article.image.url %>
+              <% end %>
+            </figure>
+            
+          </div>
+      </article>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  
+  <article class="container index-body">
+    <% @articles.each do |article| %>
+      <section>
+        <h3><%= article.title %></h3>
+        <% if article.image.exists? %>
+          <%= image_tag article.image.url %>
+        <% end %>
+        <p><%= article.body %></p>
+        <small>has <%= pluralize(article.comments.count, 'comment') %></small>
+        <small>Posted <%= "by #{ article.user.user_name }" if current_user &.simple_admin %>
+        <%= time_ago_in_words(article.created_at) unless article.created_at.blank? %> ago</small>
+        <div class="buttons">
+          <% if current_user && current_user.simple_admin && current_user.id == article.user_id %>
+            <button id="edit"><%= link_to 'Edit', edit_article_path(article) %></button>
+            <button id="destroy"><%= link_to 'Destroy', article, 
+            method: :delete, data: { confirm: 'Are you sure?' } %></button>
+          <% end %>
+          <button><%= link_to 'Show', article %></button><br>
+          <h4>Categorie(s)</h4>
+          <% article.tags.each do |tag| %>
+            <button><%= link_to tag.name, tag_path(tag) %></button>
+          <% end %>
+        </div>
+        <br>
+      </section>
+    <% end %>
+  </article>
 
-<br>
 
-<%= link_to 'New Article', new_article_path %>
+  <hr>
+  <div class="container links">
+    <% if current_user &.admin %>
+      <button>
+        <%= link_to 'administration', rails_admin_path %>
+      </button>
+    <% end %>
+    <% if current_user &.simple_admin %>
+      <button>
+        <%= link_to 'New Article', new_article_path %>
+      </button>
+    <% end %>
+  </div>
+
+</div>

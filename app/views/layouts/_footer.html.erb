@@ -1,0 +1,53 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <p class="text-justify">Beta ecommission<i>COMMISSION WANTS TO BE SIMPLE </i> is an initiative  to help Goma's people in particular 
+                with an easy way to find house to rent or to buy and other kind of commission. 
+                Beta ecommission focuses on providing the most efficient house, car, ground ect... 
+                and make it simple to find for you. We will help Goma's people to find houses at deferent places in the town that include
+                Kyeshero, Virunga, Himbi, etc...</p>
+            </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+                <% Tag.all.each do |tag| %>
+                    <li><%= link_to tag.name, tag_path(tag) %></li>
+                <% end %>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><%= link_to 'About Us','#' %></li>
+              <li><%= link_to 'Contact Us','#' %></li>
+              <li><%= link_to 'Contribute','#' %></li>
+              <li><%= link_to 'Privacy Policy', '#'%></li>
+            </ul>
+          </div>
+
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
+              <%= link_to 'TK', "https://twitter.com/Theophadh", target: '_blank' %>
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>

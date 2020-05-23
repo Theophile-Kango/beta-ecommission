@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BetaEcommission</title>
+    <title>Beta Ecommission</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,11 @@
   </head>
 
   <body>
+  <%= render 'layouts/header' %>
+    
     <%= render 'layouts/alerts' %>
     <%= yield %>
+    
+    <%= render 'layouts/footer' %>
   </body>
 </html>

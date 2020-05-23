@@ -1,0 +1,13 @@
+<div class="container tag-show">
+    <h3>list for <%= @tag.name %></h3>
+    <ul>
+        <% @tag.taggings.each do |tag| %>
+            <% if tag.article.image.exists? %>
+                <li><%= link_to image_tag tag.article.image.url %></li>
+                <li><%= link_to tag.article.body, article_path(tag) %></li>
+            <% else %>
+                <li><%= link_to tag.article.body, article_path(tag) %></li>
+            <% end %>
+        <% end %>
+    </ul>
+</div>

@@ -1,8 +1,15 @@
 <% @comments.each do |comment| %>
-  <p><%= comment.body %></p>
-  <p>Commented by <%= comment.user.email %> 
-    <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+  <p>
+    <%= image_tag comment.user.gravatar_url, :class => "gravatar" %>
+    <%= comment.body %>
   </p>
-  <p><%= link_to 'Delete', article_comment_path(comment.article_id, comment.id), 
-  method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <small>commented <%= "by #{comment.user.user_name }" if current_user %> 
+    <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+  </small>
+
+  <% if current_user && current_user.id == comment.user_id  %>
+    <p><%= link_to 'Delete', article_comment_path(comment.article_id, comment.id), 
+    method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
 <% end %>
+
