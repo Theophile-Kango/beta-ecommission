@@ -38,6 +38,7 @@ $grey:  rgb(226, 222, 222);
 
 @mixin image {
     img{
+        margin-top: 20px;
         width: 750px;
         height: 400px;
         object-fit: cover;
@@ -796,20 +797,20 @@ header{
     .new-form
         {
             form{
-                width: 350px;
+                width: 320px;
                 .field{
-                    width: 280px;
+                    width: 260px;
                 }
                 
             }
         }
 
     .index-body{
-        width: 350px;
+        width: 320px;
         
         section{
             img{
-                width: 300px;
+                width: 280px;
                 height: 200px;
                 object-fit: cover;
             }
@@ -817,10 +818,10 @@ header{
         }
     }
     .show-body{
-        width: 350px;
+        width: 320px;
         .image{
             img{
-                width: 300px;
+                width: 280px;
                 height: 200px;
                 object-fit: cover;
             }

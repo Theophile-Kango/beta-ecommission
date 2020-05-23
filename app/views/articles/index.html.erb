@@ -2,8 +2,8 @@
   <div class="top-articles">
     <% @firsts.each do |article| %>
       <article class="first-post">
-        <h3><%= article.title %></h3>
           <div class="figure">
+            <h3><%= article.title %></h3>
             <p><%= article.body %></p>
             <% article.tags.each do |tag| %>
               <button><%= link_to tag.name, tag_path(tag) %></button>
@@ -22,10 +22,10 @@
   <article class="container index-body">
     <% @articles.each do |article| %>
       <section>
-        <h3><%= article.title %></h3>
         <% if article.image.exists? %>
           <%= image_tag article.image.url %>
         <% end %>
+        <h3><%= article.title %></h3>
         <p><%= article.body %></p>
         <small>has <%= pluralize(article.comments.count, 'comment') %></small>
         <small>Posted <%= "by #{ article.user.user_name }" if current_user &.simple_admin %>
