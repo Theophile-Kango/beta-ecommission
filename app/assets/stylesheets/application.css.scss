@@ -645,6 +645,15 @@ header{
                                     }
                                 }
                             }
+                            .loggin{
+                                display: flex;
+                                align-items: center;
+                                font-weight: bold;
+                                li{
+                                    display: flex;
+                                    @include logged-button($grey);
+                                }
+                            }
                         }
     
                     }
@@ -829,9 +838,9 @@ header{
     .new-form
         {
             form{
-                width: 95%;
+                width: 320px;
                 .field{
-                    width: 90%;
+                    width: 280px;
                 }
                 
             }
