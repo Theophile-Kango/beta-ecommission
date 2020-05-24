@@ -178,7 +178,7 @@ header{
         }
         .figure{
             position: relative;
-            height: 60%;
+            height: 155px;
             background: black;
             p{
                 font-style: italic;
@@ -190,7 +190,7 @@ header{
                 padding: 8px;
                 height: 150px;
                 position: relative;
-                top: 0px;
+                top: 0;
             }
             
             button{
@@ -198,7 +198,7 @@ header{
                 color: white;
                 border: none;
                 position: relative;
-                top: -33px;
+                top: -29px;
                 text-transform: capitalize;
                 @include logged-button($blue);
                 a{
@@ -212,7 +212,7 @@ header{
                 opacity: 0.8;
                 img{
                     object-fit: cover;
-                    height: 150px;
+                    height: 155px;
                     width: 100%;
                     opacity: 0.4;
                 }
