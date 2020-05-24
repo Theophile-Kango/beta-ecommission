@@ -638,7 +638,7 @@ header{
                             }
                         }
                     } 
-                    div{
+                    .grav{
                         display: flex;
                         flex-direction: column;
                         align-items: flex-end;
@@ -663,8 +663,6 @@ header{
                         }
     
                     }
-
-
                     &:hover ul li{
                         display: block;
                         background: white;
