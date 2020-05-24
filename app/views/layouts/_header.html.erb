@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<header>
     <nav>
         <ul>
             <h2><%= link_to 'Beta ecommission', root_path %></h2>
@@ -12,6 +12,21 @@
                     <li><%= link_to 'Sign up', new_user_registration_path %></li>
                 <% end %>
             </div>
+            <div class="menu">
+                <% if current_user %>
+                    <div>
+                        <%= image_tag current_user.gravatar_url, :class => "gravatar" %>
+                        <ul>
+                            <li><%= link_to 'Edit profile', edit_user_registration_path  %></li>
+                            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                    </div>
+                <% else %>
+                    <li><%= link_to 'Log in', new_user_session_path %></li>
+                    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+                <% end %>
+            </div>
         </ul>
     </nav>
 </header>
+
