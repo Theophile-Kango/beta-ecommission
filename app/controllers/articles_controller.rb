@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.where(is_available: true).order('created_at Desc')
     @firsts = @articles.limit(4)
-    
+
   end
 
   # GET /articles/1
@@ -77,7 +77,7 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body, :tag_list, :image)
+      params.require(:article).permit(:title, :body, :tag_list, files: [])
     end
 
     def user_authorization

@@ -16,8 +16,11 @@
     </div>
   </div>
   <div class="image">
-    <% if @article.image.exists? %>
-      <%= image_tag @article.image.url %>
+    <% unless @article.files.nil? %>
+      <% @article.files.each do |file| %>
+        <%= link_to file.filename, file, target: :blank %>
+        <%= image_tag file.url %>
+      <% end %>
     <% end %>
   </div>
   <div class="details">

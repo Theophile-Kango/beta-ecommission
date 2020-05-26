@@ -27,11 +27,11 @@
   </div>
 
   <div class="image">
-    <% if @article.image.exists? %>
-        <%= image_tag @article.image.url %><br/>
+    <% if @article.files.any? %>
+        <%= image_tag @article.files[0].url %><br/>
     <% end %>
-    <%= form.label :image, "Attach a New Image" %>
-    <%= form.file_field :image %>
+    <%= form.label :files %>
+    <%= form.file_field :files, multiple: true, direct_upload: true %>
   </div>
 
   <div class="actions">

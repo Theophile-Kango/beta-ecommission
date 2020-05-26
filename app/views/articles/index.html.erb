@@ -9,8 +9,8 @@
               <button><%= link_to tag.name, tag_path(tag) %></button>
             <% end %>
             <figure>
-              <% if article.image.exists? %>
-                <%= image_tag article.image.url %>
+              <% if article.files.any? %>
+                <%= image_tag @article.files[0].url %>
               <% end %>
             </figure>
           </div>
@@ -21,8 +21,8 @@
   <article class="container index-body">
     <% @articles.each do |article| %>
       <section>
-        <% if article.image.exists? %>
-          <%= image_tag article.image.url %>
+        <% if article.files.any? %>
+          <%= image_tag @article.files[0].url %>
         <% end %>
         <h3><%= article.title %></h3>
         <p><%= article.body %></p>
