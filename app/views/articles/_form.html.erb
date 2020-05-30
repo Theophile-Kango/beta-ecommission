@@ -31,7 +31,7 @@
         <%= image_tag @article.image.url %><br/>
     <% end %>
     <%= form.label :image, "Attach a New Image" %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, direct_upload: true %>
   </div>
 
   <div class="actions">
